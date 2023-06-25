@@ -45,7 +45,8 @@ Page {
     }
 
     ButtonLayout {
-        preferredWidth: Theme.buttonWidthMedium
+        preferredWidth: Theme.buttonWidthLarge
+
         anchors {
             bottom: parent.bottom
             bottomMargin: (root.orientation & Orientation.LandscapeMask &&
