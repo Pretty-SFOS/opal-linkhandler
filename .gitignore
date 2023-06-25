@@ -1,0 +1,19 @@
+# This file is part of Opal.InfoCombo and has been released into the public domain.
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020-2023 Mirian Margiani
+
+.directory
+build*
+*.pro.user
+*.creator.user
+*.spec.*
+*~
+*.~*
+*.qm
+dist*
+TODO*
+
+opal-*.cflags
+opal-*.creator
+opal-*.cxxflags
+opal-*.files
