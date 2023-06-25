@@ -9,17 +9,17 @@
         <translation>Enlace externo</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="57"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="58"/>
         <source>Open in browser</source>
         <translation>Abrir en el navegador</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="67"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="68"/>
         <source>Copied to clipboard: %1</source>
         <translation>Copiado al portapapeles: %1</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="76"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="77"/>
         <source>Copy to clipboard</source>
         <translation>Copiar al portapapeles</translation>
     </message>
