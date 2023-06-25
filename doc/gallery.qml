@@ -32,15 +32,15 @@ S.Page {
             }
 
             S.Label {
-                x: Theme.horizontalPageMargin
-                width: page.width - 2*x
+                x: S.Theme.horizontalPageMargin
+                width: root.width - 2*x
                 wrapMode: Text.Wrap
                 text: "This label contains an " +
                       '<a href="https://example.org">external link</a> that you can activate. ' +
                       "Once clicked, a new page will prompt you to either open " +
                       "or copy the URL."
-                color: Theme.highlightColor
-                linkColor: Theme.primaryColor
+                color: S.Theme.highlightColor
+                linkColor: S.Theme.primaryColor
                 onLinkActivated: L.LinkHandler.openOrCopyUrl(link)
             }
 
@@ -49,17 +49,17 @@ S.Page {
             }
 
             S.Label {
-                x: Theme.horizontalPageMargin
-                width: page.width - 2*x
+                x: S.Theme.horizontalPageMargin
+                width: root.width - 2*x
                 wrapMode: Text.Wrap
                 text: "There can be different kinds of links in a label and " +
                       "they can be handled individually. This is " +
-                      '<a href="+004100000000">a phone number</a> while this is ' +
+                      '<a href="tel:+4100000000">a phone number</a> while this is ' +
                       '<a href="https://example.org">a website</a>.'
-                color: Theme.highlightColor
-                linkColor: Theme.primaryColor
+                color: S.Theme.highlightColor
+                linkColor: S.Theme.primaryColor
                 onLinkActivated: {
-                    if (link[0] === "+") {
+                    if (/^tel:/.test(link)) {
                         L.LinkHandler.openOrCopyUrl(link, "Phone number")
                     } else {
                         L.LinkHandler.openOrCopyUrl(link, "Website")
@@ -72,16 +72,19 @@ S.Page {
             }
 
             S.LinkedLabel {
-                x: Theme.horizontalPageMargin
-                width: page.width - 2*x
-                text: "Silica provides the LinkedLabel item that automatically" +
-                      "finds links and phone numbers in its text and makes them " +
-                      "clickable. Links this number (+004100000000) and " +
-                      "that URL: https://example.org"
+                x: S.Theme.horizontalPageMargin
+                width: root.width - 2*x
+                shortenUrl: true
+                plainText: "Silica provides the LinkedLabel item that automatically" +
+                           "finds links and phone numbers in its text and makes them " +
+                           "clickable. Links this number +4100000000 and " +
+                           "that URL: https://example.org/very-long?extra-long-data-" +
+                           "which-will-be-shortened-automatically (note how it is " +
+                           "shortened)."
 
                 defaultLinkActions: false
                 onLinkActivated: {
-                    if (link[0] === "+") {
+                    if (/^tel:/.test(link)) {
                         L.LinkHandler.openOrCopyUrl(link, "Phone number")
                     } else {
                         L.LinkHandler.openOrCopyUrl(link, "Website")
