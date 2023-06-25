@@ -3,13 +3,12 @@
 //@ SPDX-FileCopyrightText: 2020-2023 Mirian Margiani
 //@ SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.0
-import Sailfish.Silica 1.0
+// Note: this file is not a marked as a library because it needs some variables
+// from the calling context (pageStack).
 
 /*!
     \qmltype LinkHandler
     \inqmlmodule Opal.LinkHandler
-    \inherits QtObject
     \brief Provides link handlers.
 
     Use the \l openOrCopyUrl in \c onLinkActivated handlers in \c Label items.
@@ -27,18 +26,15 @@ import Sailfish.Silica 1.0
     }
     \endqml
 */
-QtObject {
-    id: root
 
-    /*!
-      This function shows a page that lets the user preview
-      an external link (\a externalUrl) before either copying it to the clipboard
-      or opening it externally. The \a title argument is optional.
+/*!
+  This function shows a page that lets the user preview
+  an external link (\a externalUrl) before either copying it to the clipboard
+  or opening it externally. The \a title argument is optional.
 
-      \sa Qt::openUrlExternally
-    */
-    function openOrCopyUrl(externalUrl, title) {
-        pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
-            {'externalUrl': externalUrl, 'title': !!title ? title : ''})
-    }
+  \sa Qt::openUrlExternally
+*/
+function openOrCopyUrl(externalUrl,title){
+    pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
+                   {'externalUrl': externalUrl, 'title': !!title ? title : ''})
 }
