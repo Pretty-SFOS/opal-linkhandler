@@ -55,7 +55,9 @@ Page {
         }
 
         Button {
-            text: qsTranslate("Opal.LinkHandler", "Open in browser")
+            text: /^http[s]?:\/\//.test(externalUrl) ?
+                      qsTranslate("Opal.LinkHandler", "Open in browser") :
+                      qsTranslate("Opal.LinkHandler", "Open externally")
             onClicked: {
                 Qt.openUrlExternally(externalUrl)
                 pageStack.pop()
