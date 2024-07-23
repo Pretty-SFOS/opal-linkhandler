@@ -75,12 +75,12 @@ S.Page {
                 x: S.Theme.horizontalPageMargin
                 width: root.width - 2*x
                 shortenUrl: true
-                plainText: "Silica provides the LinkedLabel item that automatically" +
+                plainText: "Silica provides the “LinkedLabel” item that automatically " +
                            "finds links and phone numbers in its text and makes them " +
-                           "clickable. Links this number +4100000000 and " +
-                           "that URL: https://example.org/very-long?extra-long-data-" +
-                           "which-will-be-shortened-automatically (note how it is " +
-                           "shortened)."
+                           "clickable. This number +4100000000 and " +
+                           "this URL https://example.org/very-long?extra-long-data-" +
+                           "which-will-be-shortened-automatically are automatically " +
+                           "formatted as links. Also note how the long URL is shortened."
 
                 defaultLinkActions: false
                 onLinkActivated: {
