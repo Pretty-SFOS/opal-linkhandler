@@ -52,7 +52,7 @@ S.Page {
                 x: S.Theme.horizontalPageMargin
                 width: root.width - 2*x
                 wrapMode: Text.Wrap
-                text: (qsTr"There can be different kinds of links in a label and " +
+                text: qsTr("There can be different kinds of links in a label and " +
                       "they can be handled individually. This is " +
                       '<a href="tel:+4100000000">a phone number</a> while this is ' +
                       '<a href="https://example.org">a website</a>.')
@@ -68,7 +68,7 @@ S.Page {
             }
 
             S.SectionHeader {
-                text: "Silica tools"
+                text: qsTr("Silica tools")
             }
 
             S.LinkedLabel {
