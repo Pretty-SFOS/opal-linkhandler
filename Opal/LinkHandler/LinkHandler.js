@@ -31,7 +31,8 @@
   \qmlmethod bool LinkHandler::openOrCopyUrl(externalUrl, title)
 
   This function shows a page that lets the user preview
-  an external link (\a externalUrl) before either copying it to the clipboard
+  an external link (\a externalUrl) before either copying it to the clipboard,
+  copying its title (if available), sharing it
   or opening it externally. The \a title argument is optional.
 
   \sa Qt::openUrlExternally

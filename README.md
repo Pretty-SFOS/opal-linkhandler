@@ -5,7 +5,7 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Link handler for Sailfish apps
 
-This module provides a link handler to open or copy external links.
+This module provides a link handler to open, copy or share external links.
 
 Text items and Silica's `Label` support external links using the
 `<a href="url">title</a>` notation. They can then be opened externally when
