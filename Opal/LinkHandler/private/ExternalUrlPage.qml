@@ -6,6 +6,7 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import Nemo.Notifications 1.0
+import Sailfish.Share 1.0
 
 Page {
     id: root
@@ -13,6 +14,22 @@ Page {
     property string title: '' // optional
 
     allowedOrientations: Orientation.All
+
+    ShareAction {
+        id: shareHandler
+        mimeType: 'text/x-url'
+        title: qsTranslate("Opal.LinkHandler", "Share link")
+    }
+
+    Notification {
+        id: copyNotification
+        previewSummary: qsTranslate("Opal.LinkHandler", "Copied to clipboard: %1").arg(Clipboard.text)
+        // previewSummary: qsTranslate("Opal.LinkHandler", "URL copied to clipboard")
+        // previewBody: externalUrl
+        isTransient: true
+        appIcon: "icon-lock-information"
+        icon: "icon-lock-information"
+    }
 
     Column {
         width: parent.width
@@ -44,43 +61,66 @@ Page {
         }
     }
 
-    ButtonLayout {
-        preferredWidth: Theme.buttonWidthLarge
-
+    Column {
         anchors {
             bottom: parent.bottom
-            bottomMargin: (root.orientation & Orientation.LandscapeMask &&
+            bottomMargin: (root.isLandscape &&
                            Screen.sizeCategory <= Screen.Medium) ?
                               Theme.itemSizeExtraSmall : Theme.itemSizeMedium
         }
+        width: parent.width
+        spacing: Theme.paddingLarge
 
-        Button {
-            text: /^http[s]?:\/\//.test(externalUrl) ?
-                      qsTranslate("Opal.LinkHandler", "Open in browser") :
-                      qsTranslate("Opal.LinkHandler", "Open externally")
-            onClicked: {
-                Qt.openUrlExternally(externalUrl)
-                pageStack.pop()
+        ButtonLayout {
+            id: firstRow
+            preferredWidth: (root.isPortrait || Screen.sizeCategory > Screen.Medium) ?
+                                Theme.buttonWidthLarge : Theme.buttonWidthSmall
+
+            Button {
+                text: qsTranslate("Opal.LinkHandler", "Copy text to clipboard")
+                visible: title
+                onClicked: {
+                    Clipboard.text = title
+                    copyNotification.publish()
+                    pageStack.pop()
+                }
+            }
+
+            Button {
+                ButtonLayout.newLine: root.isPortrait || Screen.sizeCategory > Screen.Medium
+                text: qsTranslate("Opal.LinkHandler", "Copy to clipboard")
+                onClicked: {
+                    Clipboard.text = externalUrl
+                    copyNotification.publish()
+                    pageStack.pop()
+                }
             }
         }
 
-        Button {
-            Notification {
-                id: copyNotification
-                previewSummary: qsTranslate("Opal.LinkHandler", "Copied to clipboard: %1").arg(externalUrl)
-                // previewSummary: qsTranslate("Opal.LinkHandler", "URL copied to clipboard")
-                // previewBody: externalUrl
-                isTransient: true
-                appIcon: "icon-lock-information"
-                icon: "icon-lock-information"
+        ButtonLayout {
+            preferredWidth: firstRow.preferredWidth
+            Button {
+                text: qsTranslate("Opal.LinkHandler", "Share")
+                onClicked: {
+                    shareHandler.resources = [{
+                        'type': 'text/x-url',
+                        'linkTitle': title, // '' by default
+                        'status': externalUrl.toString()
+                        }]
+                    shareHandler.trigger()
+                    pageStack.pop()
+                }
             }
 
-            ButtonLayout.newLine: true
-            text: qsTranslate("Opal.LinkHandler", "Copy to clipboard")
-            onClicked: {
-                Clipboard.text = externalUrl
-                copyNotification.publish()
-                pageStack.pop()
+            Button {
+                ButtonLayout.newLine: root.isPortrait || Screen.sizeCategory > Screen.Medium
+                text: /^http[s]?:\/\//.test(externalUrl) ?
+                        qsTranslate("Opal.LinkHandler", "Open in browser") :
+                        qsTranslate("Opal.LinkHandler", "Open externally")
+                onClicked: {
+                    Qt.openUrlExternally(externalUrl)
+                    pageStack.pop()
+                }
             }
         }
     }

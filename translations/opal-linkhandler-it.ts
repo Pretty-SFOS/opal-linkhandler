@@ -4,27 +4,42 @@
 <context>
     <name>Opal.LinkHandler</name>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="27"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="44"/>
         <source>External Link</source>
         <translation>Collegamento esterno</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="59"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="80"/>
+        <source>Copy text to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
         <source>Open in browser</source>
         <translation>Apri nel browser</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="60"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="119"/>
         <source>Open externally</source>
         <translation>Apri esternamente</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="70"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="26"/>
         <source>Copied to clipboard: %1</source>
         <translation>Copiato negli appunti %1</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="79"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="21"/>
+        <source>Share link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="91"/>
         <source>Copy to clipboard</source>
         <translation>Copia negli appunti</translation>
     </message>
