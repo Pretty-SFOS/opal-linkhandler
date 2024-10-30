@@ -8,3 +8,4 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 ## Programming
 
 - author: Mirian Margiani
+- many improvements: roundedrectangle
