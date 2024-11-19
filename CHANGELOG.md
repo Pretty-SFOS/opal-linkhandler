@@ -5,6 +5,10 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.2.1 (2024-11-19)
+
+- Updated translations: Estonian, Finnish, Russian, Slovak, Spanish, Belarusian
+
 ## 2.2.0 (2024-10-30)
 
 - Added translations: Lithuanian
