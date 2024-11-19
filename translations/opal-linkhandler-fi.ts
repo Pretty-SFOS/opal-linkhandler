@@ -11,12 +11,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaa</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="80"/>
         <source>Copy text to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopioi teksti leikepöydälle</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="119"/>
         <source>Open externally</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa ulkoisesti</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="26"/>
@@ -36,7 +36,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="21"/>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Jaa linkki</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="91"/>
