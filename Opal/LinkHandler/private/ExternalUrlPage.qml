@@ -7,13 +7,84 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 import Nemo.Notifications 1.0
 import Sailfish.Share 1.0
+import Nemo.DBus 2.0
+import '..'
 
 Page {
     id: root
     property url externalUrl
     property string title: '' // optional
+    property int previewType: LinkPreviewType.auto
 
     allowedOrientations: Orientation.All
+
+    Component {
+        id: webViewComponent
+        Page {
+            id: webViewPage
+            allowedOrientations: Orientation.All
+            property bool __linkhandler_webview: true
+
+            onStatusChanged: if (status == PageStatus.Active)
+                Qt.createQmlObject("import Sailfish.WebView 1.0
+WebView {
+    anchors.fill: parent
+    url: externalUrl
+}", webViewPage)
+            Component.onCompleted: statusChanged()
+        }
+    }
+
+    Timer {
+        id: pushWebviewTimer
+        interval: 0
+        onTriggered: pageStack.pushAttached(webViewComponent)
+    }
+
+    DBusInterface {
+        bus: DBus.SystemBus
+        service: 'net.connman'
+        iface: 'net.connman.Manager'
+        path: '/'
+
+        signalsEnabled: previewType === LinkPreviewType.auto
+
+        function checkState(state) {
+            if (state === "online") {
+                try {
+                    const tester = Qt.createQmlObject("import QtQuick 2.0
+import Sailfish.Silica 1.0
+import Sailfish.WebView 1.0
+Item{}", root, 'WebviewTester [inline]')
+                } catch(err) { console.log(err); return }
+                if (typeof tester === 'undefined') return
+                tester.destroy()
+
+                if (!pageStack.nextPage())
+                    pageStack.pushAttached(webViewComponent)
+            } else if (pageStack.nextPage() && pageStack.nextPage().__linkhandler_webview)
+                pageStack.popAttached()
+        }
+
+        function propertyChanged(name, value) {
+            if (name === 'State') checkState(value)
+        }
+
+        Component.onCompleted:{
+            switch (previewType) {
+            case LinkPreviewType.disable:
+                break
+            case LinkPreviewType.enable:
+                // pageStack.completeAnimation doesn't work
+                pushWebviewTimer.start()
+                break
+            default:
+                call('GetProperties', [], function(properties) {
+                    checkState(properties.State)
+                })
+            }
+        }
+    }
 
     ShareAction {
         id: shareHandler

@@ -3,3 +3,4 @@ module Opal.LinkHandler
 # SPDX-FileCopyrightText: 2023 Mirian Margiani
 # SPDX-License-Identifier: GPL-3.0-or-later
 LinkHandler 1.0 LinkHandler.js
+singleton LinkPreviewType 1.0 PreviewType.qml

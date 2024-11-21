@@ -37,7 +37,7 @@
 
   \sa Qt::openUrlExternally
 */
-function openOrCopyUrl(externalUrl, title) {
+function openOrCopyUrl(externalUrl, title, previewType) {
     pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
-                   {'externalUrl': externalUrl, 'title': !!title ? title : ''})
+                   {'externalUrl': externalUrl, 'title': !!title ? title : '', 'previewType': typeof previewType !== 'undefined' ? previewType : 0})
 }
