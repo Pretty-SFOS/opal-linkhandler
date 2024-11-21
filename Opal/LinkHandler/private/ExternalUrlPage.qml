@@ -24,13 +24,14 @@ Page {
             id: webViewPage
             allowedOrientations: Orientation.All
             property bool __linkhandler_webview: true
+            property var __webview
 
             onStatusChanged: if (status == PageStatus.Active)
-                Qt.createQmlObject("import Sailfish.WebView 1.0
+                __webview = Qt.createQmlObject("import Sailfish.WebView 1.0
 WebView {
     anchors.fill: parent
     url: externalUrl
-}", webViewPage)
+}", webViewPage); else if (__webview) __webview.destroy()
             Component.onCompleted: statusChanged()
         }
     }
