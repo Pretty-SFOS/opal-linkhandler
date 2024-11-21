@@ -54,14 +54,16 @@ WebView {
 
         function checkState(state) {
             if (state === "online") {
-                try {
-                    const tester = Qt.createQmlObject("import QtQuick 2.0
+                if (previewType !== LinkPreviewType.internetOnly) {
+                    try {
+                        const tester = Qt.createQmlObject("import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Sailfish.WebView 1.0
 Item{}", root, 'WebviewTester [inline]')
-                } catch(err) { console.log(err); return }
-                if (typeof tester === 'undefined') return
-                tester.destroy()
+                    } catch(err) { console.log(err); return }
+                    if (typeof tester === 'undefined') return
+                    tester.destroy()
+                }
 
                 if (!pageStack.nextPage())
                     pageStack.pushAttached(webViewComponent)
