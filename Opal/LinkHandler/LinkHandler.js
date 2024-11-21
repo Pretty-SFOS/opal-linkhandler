@@ -28,12 +28,22 @@
 */
 
 /*!
-  \qmlmethod bool LinkHandler::openOrCopyUrl(externalUrl, title)
+  \qmlmethod bool LinkHandler::openOrCopyUrl(externalUrl, title, previewType)
 
   This function shows a page that lets the user preview
   an external link (\a externalUrl) before either copying it to the clipboard,
   copying its title (if available), sharing it
   or opening it externally. The \a title argument is optional.
+  This module includes an algorithm for checking if the WebView module is installed,
+  Internet connection is established and Sailjail permissions include Internet usage.
+  You can override this algorithm with \a previewType property which can be one of the following:
+  
+  \list
+        \li \c LinkPreviewType.auto - default
+        \li \c LinkPreviewType.internetOnly - skips WebView check, recommended for internet links
+        \li \c LinkPreviewType.disable - skips all checks and disables preview, recommended for apps without Internet permission
+        \li \c LinkPreviewType.disable - skips all checks and enables preview
+    \endlist
 
   \sa Qt::openUrlExternally
 */
