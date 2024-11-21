@@ -43,6 +43,8 @@ WebView {
     }
 
     DBusInterface {
+        // Sailjail info: if we don't specify Internet permission, we won't have access to this service, and as a result no webview will pop up
+        // And WebView permission doesn't seem to change anything
         bus: DBus.SystemBus
         service: 'net.connman'
         iface: 'net.connman.Manager'
