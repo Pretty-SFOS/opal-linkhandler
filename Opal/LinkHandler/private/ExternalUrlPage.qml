@@ -159,6 +159,8 @@ Item{}", root, 'WebviewTester [inline]')
         }
         width: parent.width
         spacing: Theme.paddingLarge
+        height: implicitHeight
+        Behavior on height { NumberAnimation { duration: 200 } }
 
         ButtonLayout {
             id: firstRow
