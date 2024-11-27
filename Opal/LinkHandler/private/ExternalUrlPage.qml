@@ -71,7 +71,7 @@ Item{}", root, 'WebviewTester [inline]')
                     switch (externalUrl.toString().slice(0, externalUrl.toString().indexOf(':'))) {
                     case 'http':
                     case 'https':
-                    case 'file':
+                    //case 'file':
                         break
                     default: return
                     }
