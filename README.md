@@ -36,7 +36,7 @@ Label {
 
 ## Permissions
 
-Some permissions are required for WebView-based preview support in this module to work in Sailjail. This only affects apps intended for the Harbour store that show local video files.
+Some permissions are required for WebView-based preview support in this module to work in Sailjail. Make sure that if you aren't using Internet URLs you don't need Internet permission, and if you are not using preview at all you don't need any of these permissions.
 
 Add this to your `harbour-my-app.desktop` file:
 
