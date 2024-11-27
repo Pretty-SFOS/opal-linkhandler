@@ -34,6 +34,19 @@ Label {
 }
 ```
 
+## Permissions
+
+Some permissions are required for WebView-based preview support in this module to work in Sailjail. This only affects apps intended for the Harbour store that show local video files.
+
+Add this to your `harbour-my-app.desktop` file:
+
+```{ini}
+[X-Sailjail]
+Permissions=Internet;WebView
+```
+
+See [here](https://github.com/sailfishos/sailjail-permissions#permissions) for a list of all Sailjail permissions.
+
 ## Screenshots
 
 | 1. | 2. |
