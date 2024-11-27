@@ -199,5 +199,16 @@ Item{}", root, 'WebviewTester [inline]')
                 }
             }
         }
+
+        Label {
+            text: qsTr("Swipe left to preview")
+            visible: pageStack.nextPage() && pageStack.nextPage().__linkhandler_webview
+            width: parent.width - 2*Theme.horizontalPageMargin
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            color: Theme.secondaryHighlightColor
+            font.pixelSize: Theme.fontSizeSmall
+            wrapMode: Text.Wrap
+        }
     }
 }
