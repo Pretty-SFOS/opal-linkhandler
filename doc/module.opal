@@ -39,7 +39,7 @@ maintainers: Mirian Margiani
 
 # colon-separated list of this module's author(s) and contributors
 # this list should be exhaustive
-authors: Mirian Margiani
+authors: Mirian Margiani:roundedrectangle
 
 # the module's SPDX license id, cf. https://spdx.org/licenses/
 mainLicenseSpdx: GPL-3.0-or-later
