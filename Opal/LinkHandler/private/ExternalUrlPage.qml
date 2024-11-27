@@ -39,22 +39,24 @@ WebView {
     Timer {
         id: pushWebviewTimer
         interval: 0
-        onTriggered: pageStack.pushAttached(webViewComponent)
+        onTriggered: if (previewType === LinkPreviewType.enable) pageStack.pushAttached(webViewComponent)
+            else if (previewType === LinkPreviewType.schemeOnly) connman.checkState('online')
     }
 
     DBusInterface {
         // Sailjail info: if we don't specify Internet permission, we won't have access to this service, and as a result no webview will pop up
         // And WebView permission doesn't seem to change anything
+        id: connman
         bus: DBus.SystemBus
         service: 'net.connman'
         iface: 'net.connman.Manager'
         path: '/'
 
-        signalsEnabled: LinkPreviewType.auto || previewType === LinkPreviewType.internetOnly
+        signalsEnabled: previewType === LinkPreviewType.auto || previewType === LinkPreviewType.internetOnly || previewType === LinkPreviewType.internetAndScheme
 
         function checkState(state) {
             if (state === "online") {
-                if (previewType !== LinkPreviewType.internetOnly) {
+                if (previewType === LinkPreviewType.auto) {
                     try {
                         const tester = Qt.createQmlObject("import QtQuick 2.0
 import Sailfish.Silica 1.0
@@ -63,6 +65,16 @@ Item{}", root, 'WebviewTester [inline]')
                     } catch(err) { console.log(err); return }
                     if (typeof tester === 'undefined') return
                     tester.destroy()
+                }
+
+                if (previewType !== LinkPreviewType.internetOnly) {
+                    switch (externalUrl.toString().slice(0, externalUrl.toString().indexOf(':'))) {
+                    case 'http':
+                    case 'https':
+                    case 'file':
+                        break
+                    default: return
+                    }
                 }
 
                 if (!pageStack.nextPage())
@@ -80,6 +92,7 @@ Item{}", root, 'WebviewTester [inline]')
             case LinkPreviewType.disable:
                 break
             case LinkPreviewType.enable:
+            case LinkPreviewType.schemeOnly:
                 // pageStack.completeAnimation doesn't work
                 pushWebviewTimer.start()
                 break
