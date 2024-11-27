@@ -35,15 +35,21 @@
   copying its title (if available), sharing it
   or opening it externally. The \a title argument is optional.
   This module includes an algorithm for checking if the WebView module is installed,
-  Internet connection is established and Sailjail permissions include Internet usage.
+  Internet connection is established, Sailjail permissions include Internet usage
+  and the scheme provided is an Internet scheme.
   You can override this algorithm with \a previewType property which can be one of the following:
   
   \list
-        \li \c LinkPreviewType.auto - default
-        \li \c LinkPreviewType.internetOnly - skips WebView check, recommended for internet links
-        \li \c LinkPreviewType.disable - skips all checks and disables preview, recommended for apps without Internet permission
-        \li \c LinkPreviewType.disable - skips all checks and enables preview
-    \endlist
+      \li \c LinkPreviewType.auto - default
+      \li \c LinkPreviewType.internetOnly - skips WebView and scheme check, recommended for internet links where scheme should not be checked
+      \li \c LinkPreviewType.schemeOnly - skips WebView and internet check
+      \li \c LinkPreviewType.internetAndScheme - skips WebView check, recommended for links where you can't fully know if scheme is http or https
+      \li \c LinkPreviewType.disable - skips all checks and disables preview, recommended for apps without Internet and WebVoew permissions
+      \li \c LinkPreviewType.enable - skips all checks and enables preview
+      
+  \endlist
+    
+  It is recommended to set a value different from auto to skip unnecessary checks for performance.
 
   \sa Qt::openUrlExternally
 */
