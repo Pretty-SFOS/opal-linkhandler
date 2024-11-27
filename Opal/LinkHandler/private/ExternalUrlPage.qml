@@ -50,7 +50,7 @@ WebView {
         iface: 'net.connman.Manager'
         path: '/'
 
-        signalsEnabled: previewType === LinkPreviewType.auto
+        signalsEnabled: LinkPreviewType.auto || previewType === LinkPreviewType.internetOnly
 
         function checkState(state) {
             if (state === "online") {
