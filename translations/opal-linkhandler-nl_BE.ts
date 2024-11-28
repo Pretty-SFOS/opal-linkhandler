@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<TS version="2.1" language="nl_BE">
 <context>
     <name>Opal.LinkHandler</name>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="44"/>
         <source>External Link</source>
-        <translation>Link Externo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
         <source>Share</source>
-        <translation>Compartilhar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="80"/>
         <source>Copy text to clipboard</source>
-        <translation>Copiar texto para a área de transferência</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
         <source>Open in browser</source>
-        <translation>Abrir no navegador</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="119"/>
         <source>Open externally</source>
-        <translation>Abrir externamente</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="26"/>
         <source>Copied to clipboard: %1</source>
-        <translation>Copiado para a área de transferência: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="21"/>
         <source>Share link</source>
-        <translation>Compartilhar link</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="91"/>
         <source>Copy to clipboard</source>
-        <translation>Copiar para a área de transferência</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
