@@ -5,15 +5,15 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Link handler for Sailfish apps
 
-This module provides a link handler to open, copy or share external links.
+This module provides a link handler to open, copy, share or preview external links.
 
 Text items and Silica's `Label` support external links using the
 `<a href="url">title</a>` notation. They can then be opened externally when
 clicked by a user.
 
-To avoid surprises, it is often desirable to give users the option to copy an
-external link instead of immediately opening it in the default web browser.
-This module provides a way to do that.
+To avoid surprises, it is often desirable to give users the option to copy,
+share or preview an external link instead of immediately opening it
+in the default web browser. This module provides a way to do that.
 
 
 ## Usage
@@ -33,6 +33,19 @@ Label {
     onLinkActivated: LinkHandler.openOrCopyUrl(link)
 }
 ```
+
+## Permissions
+
+Some permissions are required for WebView-based preview support in this module to work in Sailjail. Make sure that if you aren't using Internet URLs you don't need Internet permission, and if you are not using preview at all you don't need any of these permissions.
+
+Add this to your `harbour-my-app.desktop` file:
+
+```{ini}
+[X-Sailjail]
+Permissions=Internet;WebView
+```
+
+See [here](https://github.com/sailfishos/sailjail-permissions#permissions) for a list of all Sailjail permissions.
 
 ## Screenshots
 
