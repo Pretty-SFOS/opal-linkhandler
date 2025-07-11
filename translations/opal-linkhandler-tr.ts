@@ -11,12 +11,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Paylaş</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="80"/>
         <source>Copy text to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Metni panoya kopyala</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="119"/>
         <source>Open externally</source>
-        <translation type="unfinished"></translation>
+        <translation>Harici olarak aç</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="26"/>
@@ -36,7 +36,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="21"/>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Linki paylaş</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="91"/>
