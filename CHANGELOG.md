@@ -5,6 +5,11 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.2.7 (2025-08-08)
+
+- Added translations: Arabic, Persian
+- Updated translations: Turkish
+
 ## 2.2.6 (2025-06-11)
 
 - Updated translations: French
