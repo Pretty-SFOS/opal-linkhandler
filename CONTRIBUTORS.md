@@ -8,4 +8,4 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 ## Programming
 
 - author: Mirian Margiani
-- many improvements: roundedrectangle
+- link title copying, link sharing, webview preview: roundedrectangle
