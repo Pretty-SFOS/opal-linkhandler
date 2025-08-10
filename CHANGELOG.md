@@ -5,6 +5,15 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.3.0 (2025-08-10)
+
+- Updated translations with contents from apps using this module.
+  I tried my best to always keep the most up-to-date version of all strings.
+  Hopefully nothing was overwritten - I apologize for any lost work!
+
+- Added a new function `openOrCopyMultipleUrls` to preview multiple URLs quickly
+- Updated documentation to include type for all function parameters
+
 ## 2.2.7 (2025-08-08)
 
 - Added translations: Arabic, Persian
