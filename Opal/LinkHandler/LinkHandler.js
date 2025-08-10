@@ -41,3 +41,31 @@ function openOrCopyUrl(externalUrl, title) {
     pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
                    {'externalUrl': externalUrl, 'title': !!title ? title : ''})
 }
+
+/*!
+  \qmlmethod bool LinkHandler::openOrCopyMultipleUrls(array sets)
+
+  This function is the same as \l openOrCopyUrl, except that it shows multiple
+  URLs for opening or copying.
+
+  Provide an array of objects in the \a sets parameter. Each object in the array
+  must have the same keys that \l openOrCopyUrl takes as parameters: the
+  \c externalUrl key is required, the \c title key is optional.
+
+  \sa openOrCopyUrl
+*/
+function openOrCopyMultipleUrls(sets) {
+    var pages = []
+
+    for (var i = 0; i < sets.length; ++i) {
+        pages.push({
+            'page': Qt.resolvedUrl('ExternalUrlPage.qml'),
+            'properties': {
+                'externalUrl': sets[i].externalUrl,
+                'title': sets[i].hasOwnProperty('title') ? sets[i].title : "",
+            }
+        })
+    }
+
+    pageStack.push(pages)
+}
