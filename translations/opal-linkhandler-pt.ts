@@ -6,7 +6,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="44"/>
         <source>External Link</source>
-        <translation>Link Externo</translation>
+        <translation>Ligação externa</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
