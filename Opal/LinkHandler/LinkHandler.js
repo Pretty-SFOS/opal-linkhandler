@@ -28,7 +28,7 @@
 */
 
 /*!
-  \qmlmethod bool LinkHandler::openOrCopyUrl(externalUrl, title)
+  \qmlmethod bool LinkHandler::openOrCopyUrl(url externalUrl, string title)
 
   This function shows a page that lets the user preview
   an external link (\a externalUrl) before either copying it to the clipboard,
