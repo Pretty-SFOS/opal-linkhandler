@@ -11,7 +11,7 @@
 #
 
 # current semantic version number, cf. https://semver.org
-version: 2.2.1
+version: 2.3.0
 
 # plain name as used in the module repository URL, will be prefixed with "opal-"
 # where necessary
@@ -39,7 +39,7 @@ maintainers: Mirian Margiani
 
 # colon-separated list of this module's author(s) and contributors
 # this list should be exhaustive
-authors: Mirian Margiani
+authors: Mirian Margiani:roundedrectangle
 
 # the module's SPDX license id, cf. https://spdx.org/licenses/
 mainLicenseSpdx: GPL-3.0-or-later
@@ -54,6 +54,11 @@ mainLicenseSpdx: GPL-3.0-or-later
 # Example:
 # extraGalleryPages: Page1.qml Page2.qml MyComponent.qml
 extraGalleryPages: none
+
+# colon-separated list of other Opal modules that this module depends on
+# Use the unstyled name without "opal-" prefix, as in the "name:" metadata field,
+# or set this field to "none" if there are no dependencies.
+dependencies: none
 
 # where the module's sources are located
 # This url will be automatically generated from the default repository url and

@@ -6,7 +6,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="44"/>
         <source>External Link</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Išorinė nuoroda</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="80"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
         <source>Open in browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Atidaryti naršyklėje</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="119"/>
@@ -31,7 +31,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="26"/>
         <source>Copied to clipboard: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nukopijuota: %1</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="21"/>

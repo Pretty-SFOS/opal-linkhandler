@@ -28,7 +28,7 @@
 */
 
 /*!
-  \qmlmethod bool LinkHandler::openOrCopyUrl(externalUrl, title, previewType)
+  \qmlmethod bool LinkHandler::openOrCopyUrl(url externalUrl, string title, int previewType)
 
   This function shows a page that lets the user preview
   an external link (\a externalUrl) before either copying it to the clipboard,
@@ -56,4 +56,33 @@
 function openOrCopyUrl(externalUrl, title, previewType) {
     pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
                    {'externalUrl': externalUrl, 'title': !!title ? title : '', 'previewType': typeof previewType !== 'undefined' ? previewType : 0})
+}
+
+/*!
+  \qmlmethod bool LinkHandler::openOrCopyMultipleUrls(array sets)
+
+  This function is the same as \l openOrCopyUrl, except that it shows multiple
+  URLs for opening or copying.
+
+  Provide an array of objects in the \a sets parameter. Each object in the array
+  must have the same keys that \l openOrCopyUrl takes as parameters: the
+  \c externalUrl key is required, the \c title and \c previewType keys are optional.
+
+  \sa openOrCopyUrl
+*/
+function openOrCopyMultipleUrls(sets) {
+    var pages = []
+
+    for (var i = 0; i < sets.length; ++i) {
+        pages.push({
+            'page': Qt.resolvedUrl('ExternalUrlPage.qml'),
+            'properties': {
+                'externalUrl': sets[i].externalUrl,
+                'title': sets[i].hasOwnProperty('title') ? sets[i].title : "",
+                'previewType': typeof sets[i].previewType !== 'undefined' ? sets[i].previewType : 0
+            }
+        })
+    }
+
+    pageStack.push(pages)
 }
