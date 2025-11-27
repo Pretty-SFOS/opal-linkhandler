@@ -68,6 +68,7 @@ QtObject{}", root, 'WebviewTester [inline]')
 
     Loader {
         id: connmanLoader
+        active: false
         sourceComponent: Component {
             DBusInterface {
                 // Sailjail info: if we don't specify Internet permission, we won't have access to this service, and as a result no webview will pop up
