@@ -221,7 +221,7 @@ QtObject{}", root, 'WebviewTester [inline]')
 
         Label {
             text: qsTr("Swipe left to preview")
-            visible: pageStack.nextPage() && pageStack.nextPage().__linkhandler_webview
+            visible: pageStack.nextPage(root) && pageStack.nextPage(root).__linkhandler_webview
             width: parent.width - 2*Theme.horizontalPageMargin
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
