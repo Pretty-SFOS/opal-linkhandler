@@ -12,6 +12,8 @@ S.Page {
     id: root
     allowedOrientations: S.Orientation.All
 
+    property int linkPreviewMode: L.LinkPreviewMode.checkInternetAndScheme
+
     S.SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -49,7 +51,18 @@ S.Page {
             }
 
             S.ComboBox {
-                
+                label: qsTr("Preview mode")
+                description: qsTr("If you decide to enable link previewing, user will be able to swipe left to preview the link content without opening Browser.")
+                currentIndex: linkPreviewMode
+                menu: S.ContextMenu {
+                    S.MenuItem { text: qsTr("auto") }
+                    S.MenuItem { text: qsTr("only check internet connection state") }
+                    S.MenuItem { text: qsTr("only check the URL scheme") }
+                    S.MenuItem { text: qsTr("check internet connection state and the URL scheme") }
+                    S.MenuItem { text: qsTr("forcefully enable") }
+                    S.MenuItem { text: qsTr("forcefully disable") }
+                }
+                onCurrentIndexChanged: linkPreviewMode = currentIndex
             }
 
             S.Label {
