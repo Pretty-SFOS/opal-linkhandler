@@ -15,7 +15,7 @@ Page {
     property url externalUrl
     property string title: '' // optional
     property int previewType: LinkPreviewMode.auto
-    property var allowedSchemes: ['http', 'https']
+    property bool inBrowser: /^http[s]?:\/\//.test(externalUrl)
 
     allowedOrientations: Orientation.All
 
@@ -57,11 +57,8 @@ QtObject{}", root, 'WebviewTester [inline]')
                 tester.destroy()
             }
 
-            if (previewType !== LinkPreviewMode.checkInternetOnly) {
-                var scheme = externalUrl.toString().slice(0, externalUrl.toString().indexOf(':'))
-                if (allowedSchemes.indexOf(scheme) == -1)
-                    return
-            }
+            if (previewType !== LinkPreviewMode.checkInternetOnly && !inBrowser)
+                return
 
             if (!pageStack.nextPage())
                 pageStack.pushAttached(webViewComponent)
@@ -209,7 +206,7 @@ QtObject{}", root, 'WebviewTester [inline]')
 
             Button {
                 ButtonLayout.newLine: root.isPortrait || Screen.sizeCategory > Screen.Medium
-                text: /^http[s]?:\/\//.test(externalUrl) ?
+                text: inBrowser ?
                         qsTranslate("Opal.LinkHandler", "Open in browser") :
                         qsTranslate("Opal.LinkHandler", "Open externally")
                 onClicked: {
