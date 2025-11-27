@@ -48,6 +48,10 @@ S.Page {
                 text: qsTr("Advanced usage")
             }
 
+            S.ComboBox {
+                
+            }
+
             S.Label {
                 x: S.Theme.horizontalPageMargin
                 width: root.width - 2*x

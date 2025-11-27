@@ -14,7 +14,8 @@ Page {
     id: root
     property url externalUrl
     property string title: '' // optional
-    property int previewType: LinkPreviewType.auto
+    property int previewType: LinkPreviewMode.auto
+    property var allowedSchemes: ['http', 'https']
 
     allowedOrientations: Orientation.All
 
@@ -39,68 +40,71 @@ WebView {
     Timer {
         id: pushWebviewTimer
         interval: 0
-        onTriggered: if (previewType === LinkPreviewType.enable) pageStack.pushAttached(webViewComponent)
-            else if (previewType === LinkPreviewType.schemeOnly) connman.checkState('online')
+        onTriggered: if (previewType === LinkPreviewMode.enabled) pageStack.pushAttached(webViewComponent)
+            else if (previewType === LinkPreviewMode.checkSchemeOnly) checkState('online')
     }
 
-    DBusInterface {
-        // Sailjail info: if we don't specify Internet permission, we won't have access to this service, and as a result no webview will pop up
-        // And WebView permission doesn't seem to change anything
-        id: connman
-        bus: DBus.SystemBus
-        service: 'net.connman'
-        iface: 'net.connman.Manager'
-        path: '/'
-
-        signalsEnabled: previewType === LinkPreviewType.auto || previewType === LinkPreviewType.internetOnly || previewType === LinkPreviewType.internetAndScheme
-
-        function checkState(state) {
-            if (state === "online") {
-                if (previewType === LinkPreviewType.auto) {
-                    try {
-                        const tester = Qt.createQmlObject("import QtQuick 2.0
+    function checkState(state) {
+        if (state === "online") {
+            if (previewType === LinkPreviewMode.auto) {
+                try {
+                    const tester = Qt.createQmlObject("import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Sailfish.WebView 1.0
-Item{}", root, 'WebviewTester [inline]')
-                    } catch(err) { console.log(err); return }
-                    if (typeof tester === 'undefined') return
-                    tester.destroy()
-                }
-
-                if (previewType !== LinkPreviewType.internetOnly) {
-                    switch (externalUrl.toString().slice(0, externalUrl.toString().indexOf(':'))) {
-                    case 'http':
-                    case 'https':
-                    //case 'file':
-                        break
-                    default: return
-                    }
-                }
-
-                if (!pageStack.nextPage())
-                    pageStack.pushAttached(webViewComponent)
-            } else if (pageStack.nextPage() && pageStack.nextPage().__linkhandler_webview)
-                pageStack.popAttached()
-        }
-
-        function propertyChanged(name, value) {
-            if (name === 'State') checkState(value)
-        }
-
-        Component.onCompleted:{
-            switch (previewType) {
-            case LinkPreviewType.disable:
-                break
-            case LinkPreviewType.enable:
-            case LinkPreviewType.schemeOnly:
-                // pageStack.completeAnimation doesn't work
-                pushWebviewTimer.start()
-                break
-            default:
-                call('GetProperties', [], function(properties) {
-                    checkState(properties.State)
-                })
+QtObject{}", root, 'WebviewTester [inline]')
+                } catch(err) { console.log(err); return }
+                if (typeof tester === 'undefined') return
+                tester.destroy()
             }
+
+            if (previewType !== LinkPreviewMode.checkInternetOnly) {
+                var scheme = externalUrl.toString().slice(0, externalUrl.toString().indexOf(':'))
+                if (allowedSchemes.indexOf(scheme) == -1)
+                    return
+            }
+
+            if (!pageStack.nextPage())
+                pageStack.pushAttached(webViewComponent)
+        } else if (pageStack.nextPage() && pageStack.nextPage().__linkhandler_webview)
+            pageStack.popAttached()
+    }
+
+    Loader {
+        id: connmanLoader
+        sourceComponent: Component {
+            DBusInterface {
+                // Sailjail info: if we don't specify Internet permission, we won't have access to this service, and as a result no webview will pop up
+                // WebView ("Web content") permission doesn't seem to change anything
+                bus: DBus.SystemBus
+                service: 'net.connman'
+                iface: 'net.connman.Manager'
+                path: '/'
+
+                signalsEnabled: true
+
+                function propertyChanged(name, value) {
+                    if (name === 'State') checkState(value)
+                }
+
+                Component.onCompleted:
+                    call('GetProperties', [], function(properties) {
+                        checkState(properties.State)
+                    })
+            }
+        }
+    }
+
+    Component.onCompleted:{
+        switch (previewType) {
+        case LinkPreviewMode.disabled:
+            break
+        case LinkPreviewMode.enabled:
+        case LinkPreviewMode.checkSchemeOnly:
+            // pageStack.completeAnimation doesn't work
+            pushWebviewTimer.start()
+            break
+        default:
+            connmanLoader.active = true
         }
     }
 
