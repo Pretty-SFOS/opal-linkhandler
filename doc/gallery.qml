@@ -43,7 +43,7 @@ S.Page {
                       "or copy the URL.")
                 color: S.Theme.highlightColor
                 linkColor: S.Theme.primaryColor
-                onLinkActivated: L.LinkHandler.openOrCopyUrl(link)
+                onLinkActivated: L.LinkHandler.openOrCopyUrl(link, undefined, linkPreviewMode)
             }
 
             S.SectionHeader {
@@ -77,9 +77,9 @@ S.Page {
                 linkColor: S.Theme.primaryColor
                 onLinkActivated: {
                     if (/^tel:/.test(link)) {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"), undefined, linkPreviewMode)
                     } else {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), undefined, linkPreviewMode)
                     }
                 }
             }
@@ -102,9 +102,9 @@ S.Page {
                 defaultLinkActions: false
                 onLinkActivated: {
                     if (/^tel:/.test(link)) {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"), undefined, linkPreviewMode)
                     } else {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), undefined, linkPreviewMode)
                     }
                 }
             }
