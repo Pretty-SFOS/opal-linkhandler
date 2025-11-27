@@ -28,7 +28,7 @@
 */
 
 /*!
-  \qmlmethod bool LinkHandler::openOrCopyUrl(url externalUrl, string title, int previewType)
+  \qmlmethod bool LinkHandler::openOrCopyUrl(url externalUrl, string title, int previewMode)
 
   This function shows a page that lets the user preview
   an external link (\a externalUrl) before either copying it to the clipboard,
@@ -39,24 +39,24 @@
   if the Internet connection is established, as well as
   if Sailjail permissions include Internet usage
   and the scheme provided is an Internet scheme (HTTP or HTTPS).
-  It is recommended to set the \a previewType property to skip unnecessary checks,
+  It is recommended to set the \a previewMode property to skip unnecessary checks,
   which can be one of the following:
   
   \list
-      \li \c LinkPreviewType.auto - default, not recommended. Enables the preview if WebView module is available and Internet is available.
-      \li \c LinkPreviewType.checkInternetOnly - enables the preview if Internet is available. Recommended for most apps
-      \li \c LinkPreviewType.checkSchemeOnly - enables the preview if the URL scheme is HTTP or HTTPS
-      \li \c LinkPreviewType.checkInternetAndScheme - enables the preview if Internet is available and the URL scheme is HTTP or HTTPS
-      \li \c LinkPreviewType.disabled - disables the preview
-      \li \c LinkPreviewType.enabled - enables the preview without checking for anything
+      \li \c LinkPreviewMode.auto - default, not recommended. Enables the preview if WebView module is available and Internet is available.
+      \li \c LinkPreviewMode.checkInternetOnly - enables the preview if Internet is available. Recommended for most apps
+      \li \c LinkPreviewMode.checkSchemeOnly - enables the preview if the URL scheme is HTTP or HTTPS
+      \li \c LinkPreviewMode.checkInternetAndScheme - enables the preview if Internet is available and the URL scheme is HTTP or HTTPS
+      \li \c LinkPreviewMode.disabled - disables the preview
+      \li \c LinkPreviewMode.enabled - enables the preview without checking for anything
       
   \endlist
 
   \sa Qt::openUrlExternally
 */
-function openOrCopyUrl(externalUrl, title, previewType) {
+function openOrCopyUrl(externalUrl, title, previewMode) {
     pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
-                   {'externalUrl': externalUrl, 'title': !!title ? title : '', 'previewType': typeof previewType !== 'undefined' ? previewType : 0})
+                   {'externalUrl': externalUrl, 'title': !!title ? title : '', 'previewMode': typeof previewMode !== 'undefined' ? previewMode : 0})
 }
 
 /*!
@@ -67,7 +67,7 @@ function openOrCopyUrl(externalUrl, title, previewType) {
 
   Provide an array of objects in the \a sets parameter. Each object in the array
   must have the same keys that \l openOrCopyUrl takes as parameters: the
-  \c externalUrl key is required, the \c title and \c previewType keys are optional.
+  \c externalUrl key is required, the \c title and \c previewMode keys are optional.
 
   \sa openOrCopyUrl
 */
@@ -80,7 +80,7 @@ function openOrCopyMultipleUrls(sets) {
             'properties': {
                 'externalUrl': sets[i].externalUrl,
                 'title': sets[i].hasOwnProperty('title') ? sets[i].title : "",
-                'previewType': typeof sets[i].previewType !== 'undefined' ? sets[i].previewType : 0
+                'previewMode': typeof sets[i].previewMode !== 'undefined' ? sets[i].previewMode : 0
             }
         })
     }

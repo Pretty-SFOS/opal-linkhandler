@@ -14,7 +14,7 @@ Page {
     id: root
     property url externalUrl
     property string title: '' // optional
-    property int previewType: LinkPreviewMode.auto
+    property int previewMode: LinkPreviewMode.auto
     property bool inBrowser: /^http[s]?:\/\//.test(externalUrl)
 
     allowedOrientations: Orientation.All
@@ -40,13 +40,13 @@ WebView {
     Timer {
         id: pushWebviewTimer
         interval: 0
-        onTriggered: if (previewType === LinkPreviewMode.enabled) pageStack.pushAttached(webViewComponent)
-            else if (previewType === LinkPreviewMode.checkSchemeOnly) checkState('online')
+        onTriggered: if (previewMode === LinkPreviewMode.enabled) pageStack.pushAttached(webViewComponent)
+            else if (previewMode === LinkPreviewMode.checkSchemeOnly) checkState('online')
     }
 
     function checkState(state) {
         if (state === "online") {
-            if (previewType === LinkPreviewMode.auto) {
+            if (previewMode === LinkPreviewMode.auto) {
                 try {
                     const tester = Qt.createQmlObject("import QtQuick 2.0
 import Sailfish.Silica 1.0
@@ -57,7 +57,7 @@ QtObject{}", root, 'WebviewTester [inline]')
                 tester.destroy()
             }
 
-            if (previewType !== LinkPreviewMode.checkInternetOnly && !inBrowser)
+            if (previewMode !== LinkPreviewMode.checkInternetOnly && !inBrowser)
                 return
 
             if (!pageStack.nextPage())
@@ -93,7 +93,7 @@ QtObject{}", root, 'WebviewTester [inline]')
     }
 
     Component.onCompleted:{
-        switch (previewType) {
+        switch (previewMode) {
         case LinkPreviewMode.disabled:
             break
         case LinkPreviewMode.enabled:
