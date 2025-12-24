@@ -96,7 +96,20 @@ function _fixPageOrientations() {
   \endtable
 
   You can pass extra properties directly to the handler page by passing an object in
-  the optional parameter \a extraProperties. See \l ExternalUrlPage for details.
+  the optional parameter \a extraProperties.
+
+  \table
+    \header
+        \li Property name
+        \li Type
+        \li Default
+        \li Description
+    \row
+        \li \c allowedSchemesRegex
+        \li RegExp
+        \li \c {/^https:\/\//}
+        \li a regular expression to check whether a link may show a preview
+  \endtable
 
   Returns the handler page instance.
 
