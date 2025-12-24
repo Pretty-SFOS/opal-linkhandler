@@ -1,6 +1,7 @@
 //@ This file is part of opal-linkhandler.
 //@ https://github.com/Pretty-SFOS/opal-linkhandler
-//@ SPDX-FileCopyrightText: 2021-2023 Mirian Margiani
+//@ SPDX-FileCopyrightText: 2021-2025 Mirian Margiani
+//@ SPDX-FileCopyrightText: 2025 roundedrectangle
 //@ SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.2

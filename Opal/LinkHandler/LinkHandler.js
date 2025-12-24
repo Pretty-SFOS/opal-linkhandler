@@ -1,6 +1,7 @@
 //@ This file is part of opal-linkhandler.
 //@ https://github.com/Pretty-SFOS/opal-linkhandler
-//@ SPDX-FileCopyrightText: 2020-2023 Mirian Margiani
+//@ SPDX-FileCopyrightText: 2020-2025 Mirian Margiani
+//@ SPDX-FileCopyrightText: 2025 roundedrectangle
 //@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // Note: this file is not a marked as a library because it needs some variables

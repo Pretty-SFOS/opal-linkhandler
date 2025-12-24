@@ -1,7 +1,7 @@
 /*
  * This file is part of harbour-opal.
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023-2024 Mirian Margiani
+ * SPDX-FileCopyrightText: 2023-2025 Mirian Margiani
  */
 
 import QtQuick 2.0
