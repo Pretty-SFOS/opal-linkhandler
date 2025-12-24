@@ -11,7 +11,7 @@
 #
 
 # current semantic version number, cf. https://semver.org
-version: 2.3.1
+version: 2.4.0
 
 # plain name as used in the module repository URL, will be prefixed with "opal-"
 # where necessary
@@ -32,7 +32,7 @@ description: This module provides a link handler to open or copy external links.
 
 # attribution string for the whole module, in the same form as a SPDX
 # FileCopyrightText entry.
-attribution: 2020-2024 Mirian Margiani
+attribution: 2020-2025 Mirian Margiani:2025 roundedrectangle
 
 # colon-separated list of this module's current maintainer(s)
 maintainers: Mirian Margiani

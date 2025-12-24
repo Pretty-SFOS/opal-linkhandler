@@ -5,6 +5,25 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.4.0 (2025-12-24)
+
+- Added support for quickly previewing the contents of a link by swiping left.
+  - All network access requires explicit user interaction.
+  - A warning is shown when using a mobile data connection.
+  - This feature is only enabled for HTTPS urls by default.
+  - Use the `LinkPreviewMode` setting to configure the feature.
+  - Thanks to roundedrectangle!
+- Redesigned buttons to be more elegant.
+- Fixed translation file names to be the same across all modules
+
+- Fixed packaging to include `opal.pri` and `.gitignore` files for
+  easier integration into apps. Add `include(libs/opal.pri)`
+  to your `harbour-myapp.pro` file to enable Opal in your app.
+- **Note:** you *still* must modify your `yaml` or `spec` file for Harbour compliance!
+  See [here](https://github.com/Pretty-SFOS/opal/blob/main/README.md#using-opal)
+  for updated instructions.
+- Fixed documentation to exclude some unnecessary generated parts.
+
 ## 2.3.1 (2025-11-26)
 
 - Added translations: Bengali, Chinese (Traditional Han script), Hindi, Malayalam, Thai
