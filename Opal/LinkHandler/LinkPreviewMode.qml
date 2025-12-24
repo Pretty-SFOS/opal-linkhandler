@@ -7,7 +7,9 @@
 pragma Singleton
 import QtQuick 2.0
 
-// NOTE When changing values, remember to adapt LinkHandler.js!
+// NOTE When changing values, remember to adapt LinkHandler.js.
+// NOTE Values are documented in openOrCopyUrl() in LinkHandler.js.
+
 QtObject {
     // scheme is checked in all cases!
 

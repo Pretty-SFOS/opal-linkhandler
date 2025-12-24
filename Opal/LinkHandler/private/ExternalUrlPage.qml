@@ -11,16 +11,27 @@ import '..'
 
 Page {
     id: root
-    allowedOrientations: Orientation.All
 
-    property url externalUrl
-    property string title: '' // optional
-    property int previewMode: LinkPreviewMode.auto
+    /*
+     Extra properties that may be changed through the
+     "extraProperties" parameter of openOrCopyUrl().
 
+     Note: these properties must be documented in openOrCopyUrl().
+     */
     // only HTTPS is allowed because we don't want users to make
     // insecure connections (unless they want to, expressly)
     property var allowedSchemesRegex: new RegExp(/^https:\/\//)
 
+    /*
+     Properties passed by openOrCopyUrl():
+     */
+    property url externalUrl
+    property string title: '' // optional
+    property int previewMode: LinkPreviewMode.auto
+
+    /*
+     Implementation details:
+     */
     readonly property bool _schemeAllowed: allowedSchemesRegex.test(externalUrl)
     property bool _networkIsConnected: netCheck.item ? netCheck.item.networkIsConnected : false
     property bool _networkIsWifi: netCheck.item ? netCheck.item.networkIsWifi : false
@@ -39,6 +50,7 @@ Page {
             )
         )
 
+    allowedOrientations: Orientation.All
     onPreviewModeChanged: console.log("[Opal.LinkHandler] mode:", previewMode)
     on_NetworkStatusChanged: console.log("[Opal.LinkHandler] network connected:",
                                          _networkIsConnected, "| is wifi:", _networkIsWifi)
