@@ -67,8 +67,10 @@ Page {
     function _testWebview() {
         if (!_haveWebviewModuleTested) {
             try {
-                const tester = Qt.createQmlObject(
-                    "import Sailfish.WebView 1.0; import QtQuick 2.0; QtObject{}",
+                const tester = Qt.createQmlObject("
+                        import Sailfish.WebView 1.0
+                        import QtQuick 2.0
+                        QtObject {}",
                     root, 'WebviewTester [inline]')
             } catch(err) {
                 console.log(err)
