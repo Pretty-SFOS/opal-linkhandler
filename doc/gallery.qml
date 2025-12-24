@@ -12,6 +12,8 @@ S.Page {
     id: root
     allowedOrientations: S.Orientation.All
 
+    property int linkPreviewMode: L.LinkPreviewMode.checkInternetAndScheme
+
     S.SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -41,11 +43,26 @@ S.Page {
                       "or copy the URL.")
                 color: S.Theme.highlightColor
                 linkColor: S.Theme.primaryColor
-                onLinkActivated: L.LinkHandler.openOrCopyUrl(link)
+                onLinkActivated: L.LinkHandler.openOrCopyUrl(link, undefined, linkPreviewMode)
             }
 
             S.SectionHeader {
                 text: qsTr("Advanced usage")
+            }
+
+            S.ComboBox {
+                label: qsTr("Preview mode")
+                description: qsTr("If you decide to enable link previewing, user will be able to swipe left to preview the link content without opening Browser.")
+                currentIndex: linkPreviewMode
+                menu: S.ContextMenu {
+                    S.MenuItem { text: qsTr("auto") }
+                    S.MenuItem { text: qsTr("only check internet connection state") }
+                    S.MenuItem { text: qsTr("only check the URL scheme") }
+                    S.MenuItem { text: qsTr("check internet connection state and the URL scheme") }
+                    S.MenuItem { text: qsTr("forcefully enable") }
+                    S.MenuItem { text: qsTr("forcefully disable") }
+                }
+                onCurrentIndexChanged: linkPreviewMode = currentIndex
             }
 
             S.Label {
@@ -60,9 +77,9 @@ S.Page {
                 linkColor: S.Theme.primaryColor
                 onLinkActivated: {
                     if (/^tel:/.test(link)) {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"), undefined, linkPreviewMode)
                     } else {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), undefined, linkPreviewMode)
                     }
                 }
             }
@@ -85,9 +102,9 @@ S.Page {
                 defaultLinkActions: false
                 onLinkActivated: {
                     if (/^tel:/.test(link)) {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"), undefined, linkPreviewMode)
                     } else {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"))
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), undefined, linkPreviewMode)
                     }
                 }
             }
