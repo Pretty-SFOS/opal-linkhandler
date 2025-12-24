@@ -2,46 +2,64 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="tr">
 <context>
+    <name>ExternalUrlPage</name>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="215"/>
+        <source>Swipe left to preview.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="216"/>
+        <source>You are using a mobile data connection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Opal.LinkHandler</name>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="44"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="133"/>
+        <source>Phone number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="134"/>
         <source>External link</source>
         <translation>Dış Bağlantı</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="171"/>
+        <source>Copy link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="176"/>
+        <source>Copy text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="186"/>
         <source>Share</source>
         <translation>Paylaş</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="80"/>
-        <source>Copy text to clipboard</source>
-        <translation>Metni panoya kopyala</translation>
-    </message>
-    <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="205"/>
         <source>Open in browser</source>
         <translation>Tarayıcıda aç</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="119"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="206"/>
         <source>Open externally</source>
         <translation>Harici olarak aç</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="26"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="95"/>
         <source>Copied to clipboard: %1</source>
         <translation>Panoya kopyalandı: %1</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="21"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
         <source>Share link</source>
         <translation>Linki paylaş</translation>
-    </message>
-    <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="91"/>
-        <source>Copy to clipboard</source>
-        <translation>Panoya kopyala</translation>
     </message>
 </context>
 </TS>
