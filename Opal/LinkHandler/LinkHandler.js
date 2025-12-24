@@ -7,6 +7,8 @@
 // Note: this file is not a marked as a library because it needs some variables
 // from the calling context (pageStack).
 
+var _defaultPreviewMode = 0
+
 /*!
     \qmltype LinkHandler
     \inqmlmodule Opal.LinkHandler
@@ -28,47 +30,99 @@
     \endqml
 */
 
-/*!
-  \qmlmethod bool LinkHandler::openOrCopyUrl(url externalUrl, string title, int previewMode)
+// Add values missing from \a obj from \a toAdd to \a obj.
+function _extendObj(obj, toAdd){
+    for (var i in toAdd) {
+        if (!obj.hasOwnProperty(i)) {
+            obj[i] = toAdd[i]
+        }
+    }
 
-  This function shows a page that lets the user preview
-  an external link (\a externalUrl) before either copying it to the clipboard,
-  copying its title (if available), sharing it
-  or opening it externally. The \a title argument is optional.
-  This module checks if the WebView module
-  is installed for compatibility with older apps,
-  if the Internet connection is established, as well as
-  if Sailjail permissions include Internet usage
-  and the scheme provided is an Internet scheme (HTTP or HTTPS).
-  It is recommended to set the \a previewMode property to skip unnecessary checks,
-  which can be one of the following:
-  
-  \list
-      \li \c LinkPreviewMode.auto - default, not recommended. Enables the preview if WebView module is available and Internet is available.
-      \li \c LinkPreviewMode.checkInternetOnly - enables the preview if Internet is available. Recommended for most apps
-      \li \c LinkPreviewMode.checkSchemeOnly - enables the preview if the URL scheme is HTTP or HTTPS
-      \li \c LinkPreviewMode.checkInternetAndScheme - enables the preview if Internet is available and the URL scheme is HTTP or HTTPS
-      \li \c LinkPreviewMode.disabled - disables the preview
-      \li \c LinkPreviewMode.enabled - enables the preview without checking for anything
-      
-  \endlist
+    return obj
+};
 
-  \sa Qt::openUrlExternally
-*/
-function openOrCopyUrl(externalUrl, title, previewMode) {
-    pageStack.push(Qt.resolvedUrl("private/ExternalUrlPage.qml"),
-                   {'externalUrl': externalUrl, 'title': !!title ? title : '', 'previewMode': typeof previewMode !== 'undefined' ? previewMode : 0})
+// We have to explicitly set the \c _defaultPageOrientations property
+// to \c Orientation.All so the page stack's default placeholder page
+// will be allowed to be in landscape mode. (The default value is
+// \c Orientation.Portrait.)
+//
+// Without this setting, pushing pages to the stack using \c animatorPush()
+// while in landscape or inverted portrait mode will cause the view to get
+// stuck on the empty placeholder page.
+//
+// Issue since at least 2021, SFOS 3.4 (sailfishsilica-qt5 version 1.1.110.3-1.33.3.jolla)
+// Persistent until at least 2025, SFOS 4.6
+function _fixPageOrientations() {
+    try {
+        __silica_applicationwindow_instance._defaultPageOrientations = 15
+    } catch(e) {
+        console.warn("[Opal.LinkHandler] failed to apply workaround for animatorPush() issue")
+    }
 }
 
 /*!
-  \qmlmethod bool LinkHandler::openOrCopyMultipleUrls(array sets)
+  \qmlmethod Page LinkHandler::openOrCopyUrl(url externalUrl, string title, int previewMode)
+
+  This function shows a page that allows users to open, copy, share, or quickly preview an
+  external link (\a externalUrl).
+
+  You can give an optional page title in the \a title argument. A default title based
+  on the URL type is used if this argument is empty.
+
+  The preview is only enabled if the link is a web address (HTTP or HTTPS) and
+  the app has network access (connection and permissions).
+
+  \note this module is compatible with older Sailfish versions where the \c WebView
+  module is not available. However, the preview will be disabled.
+
+  Optionally, set the \a previewMode parameter to one of the following values.
+
+  \table
+    \header
+        \li Preview Mode
+        \li Description
+    \row
+        \li \c LinkPreviewMode.auto
+        \li default: enables the preview if any network connection is available and the URL scheme is valid
+    \row
+        \li \c LinkPreviewMode.disabledIfMobile
+        \li disables the preview if the device is connected via a mobile data connection
+    \row
+        \li \c LinkPreviewMode.enabled
+        \li enables the preview if the URL scheme is valid
+    \row
+        \li \c LinkPreviewMode.disabled
+        \li disables the preview
+  \endtable
+
+  You can pass extra properties directly to the handler page by passing an object in
+  the optional parameter \a extraProperties. See \l ExternalUrlPage for details.
+
+  Returns the handler page instance.
+
+  \sa Qt::openUrlExternally, openOrCopyMultipleUrls, ExternalUrlPage
+*/
+function openOrCopyUrl(externalUrl, title, previewMode, extraProperties) {
+    _fixPageOrientations()
+    return pageStack.animatorPush(Qt.resolvedUrl("private/ExternalUrlPage.qml"), _extendObj({
+        'externalUrl': externalUrl,
+        'title': !!title ? title : '',
+        'previewMode': typeof previewMode !== 'undefined' ? previewMode : _defaultPreviewMode
+    }, !!extraProperties ? extraProperties : {}))
+}
+
+/*!
+  \qmlmethod void LinkHandler::openOrCopyMultipleUrls(array sets)
 
   This function is the same as \l openOrCopyUrl, except that it shows multiple
   URLs for opening or copying.
 
   Provide an array of objects in the \a sets parameter. Each object in the array
   must have the same keys that \l openOrCopyUrl takes as parameters: the
-  \c externalUrl key is required, the \c title and \c previewMode keys are optional.
+  \c externalUrl key is required, the \c title, \c previewMode, and \c extraProperties
+  keys are optional.
+
+  Returns nothing.
 
   \sa openOrCopyUrl
 */
@@ -78,13 +132,15 @@ function openOrCopyMultipleUrls(sets) {
     for (var i = 0; i < sets.length; ++i) {
         pages.push({
             'page': Qt.resolvedUrl('ExternalUrlPage.qml'),
-            'properties': {
+            'properties': _extendObj({
                 'externalUrl': sets[i].externalUrl,
                 'title': sets[i].hasOwnProperty('title') ? sets[i].title : "",
-                'previewMode': typeof sets[i].previewMode !== 'undefined' ? sets[i].previewMode : 0
-            }
+                'previewMode': typeof sets[i].previewMode !== 'undefined' ? sets[i].previewMode : _defaultPreviewMode
+            }, sets[i].hasOwnProperty('extraProperties') && !!sets[i].extraProperties ?
+                sets[i].extraProperties : {})
         })
     }
 
+    _fixPageOrientations()
     pageStack.push(pages)
 }

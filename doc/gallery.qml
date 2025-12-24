@@ -4,15 +4,19 @@
  * SPDX-FileCopyrightText: 2023-2025 Mirian Margiani
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0 as S
+import Opal.Gallery 1.0 as G
+import Opal.InfoCombo 1.0 as I
+import Opal.ComboData 1.0
+
 import Opal.LinkHandler 1.0 as L
 
 S.Page {
     id: root
     allowedOrientations: S.Orientation.All
 
-    property int linkPreviewMode: L.LinkPreviewMode.checkInternetAndScheme
+    property int linkPreviewMode: L.LinkPreviewMode.auto
 
     S.SilicaFlickable {
         anchors.fill: parent
@@ -33,7 +37,13 @@ S.Page {
                 text: qsTr("Basic usage")
             }
 
+            G.GalleryLabel {
+                text: qsTr("This module lets users decide what to do when " +
+                           "they click on a link.")
+            }
+
             S.Label {
+                // Example usage with a simple label
                 x: S.Theme.horizontalPageMargin
                 width: root.width - 2*x
                 wrapMode: Text.Wrap
@@ -43,43 +53,87 @@ S.Page {
                       "or copy the URL.")
                 color: S.Theme.highlightColor
                 linkColor: S.Theme.primaryColor
-                onLinkActivated: L.LinkHandler.openOrCopyUrl(link, undefined, linkPreviewMode)
+                onLinkActivated: L.LinkHandler.openOrCopyUrl(link, "", linkPreviewMode)
             }
 
             S.SectionHeader {
                 text: qsTr("Advanced usage")
             }
 
-            S.ComboBox {
-                label: qsTr("Preview mode")
-                description: qsTr("If you decide to enable link previewing, user will be able to swipe left to preview the link content without opening Browser.")
-                currentIndex: linkPreviewMode
-                menu: S.ContextMenu {
-                    S.MenuItem { text: qsTr("auto") }
-                    S.MenuItem { text: qsTr("only check internet connection state") }
-                    S.MenuItem { text: qsTr("only check the URL scheme") }
-                    S.MenuItem { text: qsTr("check internet connection state and the URL scheme") }
-                    S.MenuItem { text: qsTr("forcefully enable") }
-                    S.MenuItem { text: qsTr("forcefully disable") }
+            G.GalleryLabel {
+                text: qsTr("The link handler can optionally allow users " +
+                           "to quickly preview a link by swiping left, without " +
+                           "having to open the browser.")
+            }
+
+            G.GalleryLabel {
+                text: qsTr("No network connections will be made without " +
+                           "explicit user interaction.")
+            }
+
+            I.InfoCombo {
+                label: qsTr("Mode")
+                linkHandler: function(link) { L.LinkHandler.openOrCopyUrl(link) }
+
+                property ComboData cdata
+                ComboData { dataRole: "value" }
+                onValueChanged: linkPreviewMode = cdata.currentData
+                Component.onCompleted: cdata.reset(linkPreviewMode)
+
+                I.InfoComboSection {
+                    text: qsTr("The URL scheme is checked and must be valid " +
+                               "in all modes.")
+                    placeAtTop: true
                 }
-                onCurrentIndexChanged: linkPreviewMode = currentIndex
+
+                menu: S.ContextMenu {
+                    I.InfoMenuItem {
+                        text: qsTr("automatic")
+                        info: qsTr("This mode enables the preview if any network connection " +
+                                   "is available.")
+                        property int value: L.LinkPreviewMode.auto
+                    }
+                    I.InfoMenuItem {
+                        text: qsTr("no mobile data")
+                        info: qsTr("This mode only enables the preview if connected " +
+                                   "via Wifi. The preview is disabled when using mobile " +
+                                   "data.")
+                        property int value: L.LinkPreviewMode.disabledIfMobile
+                    }
+                    I.InfoMenuItem {
+                        text: qsTr("enabled")
+                        info: qsTr("This mode enables the preview without checking for " +
+                                   "network access. Use this e.g. for links on <i>localhost</i>.")
+                        property int value: L.LinkPreviewMode.enabled
+                    }
+                    I.InfoMenuItem {
+                        text: qsTr("disabled")
+                        info: qsTr("This mode disables the preview.")
+                        property int value: L.LinkPreviewMode.disabled
+                    }
+                }
+            }
+
+            G.GalleryLabel {
+                text: qsTr("There can be different kinds of links in a label and " +
+                           "they can be handled individually.")
             }
 
             S.Label {
                 x: S.Theme.horizontalPageMargin
                 width: root.width - 2*x
                 wrapMode: Text.Wrap
-                text: qsTr("There can be different kinds of links in a label and " +
-                      "they can be handled individually. This is " +
+                text: qsTr( "This is " +
                       '<a href="tel:+4100000000">a phone number</a> while this is ' +
                       '<a href="https://example.org">a website</a>.')
                 color: S.Theme.highlightColor
                 linkColor: S.Theme.primaryColor
+
                 onLinkActivated: {
                     if (/^tel:/.test(link)) {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"), undefined, linkPreviewMode)
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Call me"), linkPreviewMode)
                     } else {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), undefined, linkPreviewMode)
+                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), linkPreviewMode)
                     }
                 }
             }
@@ -88,25 +142,23 @@ S.Page {
                 text: qsTr("Silica tools")
             }
 
+            G.GalleryLabel {
+                text: qsTr("Silica provides the “LinkedLabel” item that automatically " +
+                           "finds links and phone numbers in its text and makes them " +
+                           "clickable. Also note how the long URL is shortened.")
+            }
+
             S.LinkedLabel {
                 x: S.Theme.horizontalPageMargin
                 width: root.width - 2*x
                 shortenUrl: true
-                plainText: qsTr("Silica provides the “LinkedLabel” item that automatically " +
-                           "finds links and phone numbers in its text and makes them " +
-                           "clickable. This number +4100000000 and " +
+                plainText: qsTr("This number +4100000000 and " +
                            "this URL https://example.org/very-long?extra-long-data-" +
                            "which-will-be-shortened-automatically are automatically " +
-                           "formatted as links. Also note how the long URL is shortened.")
+                           "formatted as links.")
 
                 defaultLinkActions: false
-                onLinkActivated: {
-                    if (/^tel:/.test(link)) {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Phone number"), undefined, linkPreviewMode)
-                    } else {
-                        L.LinkHandler.openOrCopyUrl(link, qsTr("Website"), undefined, linkPreviewMode)
-                    }
-                }
+                onLinkActivated: L.LinkHandler.openOrCopyUrl(link, "", linkPreviewMode)
             }
         }
     }

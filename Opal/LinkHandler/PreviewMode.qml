@@ -7,11 +7,19 @@
 pragma Singleton
 import QtQuick 2.0
 
+// NOTE When changing values, remember to adapt LinkHandler.js!
 QtObject {
+    // scheme is checked in all cases!
+
+    // verify that that any network connection is enabled
     readonly property int auto: 0
-    readonly property int checkInternetOnly: 1
-    readonly property int checkSchemeOnly: 2
-    readonly property int checkInternetAndScheme: 3
-    readonly property int enabled: 4
-    readonly property int disabled: 5
+
+    // always enabled
+    readonly property int enabled: 1
+
+    // disabled if no network or mobile data is connected
+    readonly property int disabledIfMobile: 2
+
+    // always disabled
+    readonly property int disabled: 3
 }
