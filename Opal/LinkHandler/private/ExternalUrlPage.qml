@@ -17,8 +17,9 @@ Page {
     property string title: '' // optional
     property int previewMode: LinkPreviewMode.auto
 
-    // TODO forbid plain HTTP
-    property var allowedSchemesRegex: new RegExp(/^http[s]?:\/\//)
+    // only HTTPS is allowed because we don't want users to make
+    // insecure connections (unless they want to, expressly)
+    property var allowedSchemesRegex: new RegExp(/^https:\/\//)
 
     readonly property bool _schemeAllowed: allowedSchemesRegex.test(externalUrl)
     property bool _networkIsConnected: netCheck.item ? netCheck.item.networkIsConnected : false
@@ -181,6 +182,10 @@ Page {
 
             Button {
                 ButtonLayout.newLine: root.isPortrait
+
+                // even though we don't allow previews for plain HTTP links
+                // by default, we still recognize them as "to be opened
+                // with the browser"
                 text: /^http[s]?:\/\//.test(externalUrl) ?
                         qsTranslate("Opal.LinkHandler", "Open in browser") :
                         qsTranslate("Opal.LinkHandler", "Open externally")
