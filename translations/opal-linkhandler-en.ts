@@ -5,8 +5,8 @@
     <name>Opal.LinkHandler</name>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="44"/>
-        <source>External Link</source>
-        <translation>External Link</translation>
+        <source>External link</source>
+        <translation>External link</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="103"/>
