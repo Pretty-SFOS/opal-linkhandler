@@ -4,4 +4,4 @@ module Opal.LinkHandler
 # SPDX-FileCopyrightText: 2025 roundedrectangle
 # SPDX-License-Identifier: GPL-3.0-or-later
 LinkHandler 1.0 LinkHandler.js
-singleton LinkPreviewMode 1.0 PreviewMode.qml
+singleton LinkPreviewMode 1.0 LinkPreviewMode.qml
