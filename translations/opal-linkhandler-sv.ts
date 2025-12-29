@@ -6,12 +6,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="215"/>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Svep vänster för att förhandsgranska.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="216"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du använder en mobil dataanslutning.</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="133"/>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefonnummer</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="134"/>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="171"/>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera länk</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="176"/>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera text</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="186"/>

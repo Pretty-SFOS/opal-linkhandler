@@ -19,7 +19,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="133"/>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefon numarası</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="134"/>
