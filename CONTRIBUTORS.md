@@ -9,3 +9,10 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 - author: Mirian Margiani
 - link title copying, link sharing, webview preview: roundedrectangle
+
+
+## Translations
+
+- Anonymous
+- Đặng Hoàng Ân
+- Priit Jõerüüt
