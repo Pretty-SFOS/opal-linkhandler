@@ -28,6 +28,7 @@ Page {
                     opacity: 0.0
                     Behavior on opacity { FadeAnimation { duration: 300 } }
                     url: externalUrl
+                    privateMode: true
             }", root)
         } else if (__webview) {
             __webview.destroy()
