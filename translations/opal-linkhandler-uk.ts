@@ -61,5 +61,15 @@
         <source>Share link</source>
         <translation>Поділитися посиланням</translation>
     </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="58"/>
+        <source>No preview available.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="59"/>
+        <source>The page is taking too long to load.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
