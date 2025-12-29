@@ -5,6 +5,17 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.5.0 (2025-12-29)
+
+- **Important:** Fixed loading previews in private mode. That is, no cache or
+  history should be saved for previews. This is important to avoid tracking
+  between previews.
+- Added a loading indicator that shows while the preview is loading
+- Abort loading if it takes too long
+
+- Added translations: Vietnamese
+- Updated translations: Estonian, French, Italian, Portuguese, Portuguese (Brazil), Romanian, Russian, Spanish, Swedish, Tamil, Turkish, Ukrainian
+
 ## 2.4.0 (2025-12-24)
 
 - Added support for quickly previewing the contents of a link by swiping left.
