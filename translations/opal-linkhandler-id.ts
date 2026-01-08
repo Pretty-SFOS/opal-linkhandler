@@ -6,12 +6,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="215"/>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geser ke kiri untuk melihat pratinjau.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="216"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat ini Anda terhubung melalui data seluler.</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="133"/>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Nomer HP</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="134"/>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="171"/>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin link</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="176"/>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin tulisan</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="186"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Bagikan</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="205"/>
@@ -59,17 +59,17 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
         <source>Share link</source>
-        <translation type="unfinished"></translation>
+        <translation>Bagikan link</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="58"/>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pratinjau tidak dapat ditampilkan</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="59"/>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Waktu muat halaman terlalu lama.</translation>
     </message>
 </context>
 </TS>
