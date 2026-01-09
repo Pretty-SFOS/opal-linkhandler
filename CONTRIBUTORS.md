@@ -16,3 +16,7 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 - Anonymous
 - Đặng Hoàng Ân
 - Priit Jõerüüt
+- David D.
+- Francisco Serrador
+- Frank Paul Silye
+- Om Era
