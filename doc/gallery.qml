@@ -108,7 +108,7 @@ S.Page {
                     }
                     I.InfoMenuItem {
                         text: qsTr("disabled")
-                        info: qsTr("This mode disables the preview.") + " "
+                        info: qsTr("This mode disables the preview.") + " " +
                               qsTr("This is the default setting.")
                         property int value: L.LinkPreviewMode.disabled
                     }
