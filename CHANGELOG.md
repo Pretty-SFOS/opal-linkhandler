@@ -5,6 +5,18 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.6.0 (2026-01-09)
+
+- Updated translations: Estonian, French, Indonesian, Norwegian Bokmål, Spanish
+- Fixed mobile data hint showing up with when connected to Wifi
+- Changed default preview mode from "auto" to "disabled"
+  - This prevents unexpected and unnecessary littering with large browser
+    profile folders just for checking whether the web view component is
+    available.
+  - Previews are also a privacy concern as there is no way of clearing
+    the browser profile for each preview. It may be possible to track
+    across previewed pages.
+
 ## 2.5.0 (2025-12-29)
 
 - **Important:** Fixed loading previews in private mode. That is, no cache or
