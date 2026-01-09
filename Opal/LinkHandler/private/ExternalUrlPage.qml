@@ -27,7 +27,7 @@ Page {
      */
     property url externalUrl
     property string title: '' // optional
-    property int previewMode: LinkPreviewMode.auto
+    property int previewMode: LinkPreviewMode.disabled
 
     /*
      Implementation details:
