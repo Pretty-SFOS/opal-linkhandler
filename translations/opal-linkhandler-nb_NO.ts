@@ -4,12 +4,12 @@
 <context>
     <name>ExternalUrlPage</name>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="215"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
         <source>Swipe left to preview.</source>
         <translation>Sveip til venstre for forhåndsvisning.</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="216"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="220"/>
         <source>You are using a mobile data connection.</source>
         <translation>Du bruker mobilnett.</translation>
     </message>
@@ -17,37 +17,37 @@
 <context>
     <name>Opal.LinkHandler</name>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="133"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="137"/>
         <source>Phone number</source>
         <translation>Telefonnummer</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="134"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="138"/>
         <source>External link</source>
         <translation>Ekstern lenke</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="171"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="175"/>
         <source>Copy link</source>
         <translation>Kopier lenke</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="176"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="180"/>
         <source>Copy text</source>
         <translation>Kopier tekst</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="186"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="190"/>
         <source>Share</source>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="205"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="209"/>
         <source>Open in browser</source>
         <translation>Åpne i nettleser</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="206"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="210"/>
         <source>Open externally</source>
         <translation>Åpne med annet program</translation>
     </message>
@@ -57,7 +57,7 @@
         <translation>Kopiert til utklippstavlen: %1</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="118"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="122"/>
         <source>Share link</source>
         <translation>Del lenke</translation>
     </message>
