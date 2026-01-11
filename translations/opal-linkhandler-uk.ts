@@ -6,12 +6,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Проведіть пальцем ліворуч для попереднього перегляду.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="220"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви використовуєте мобільне передавання даних.</translation>
     </message>
 </context>
 <context>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="175"/>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати посилання</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="180"/>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати текст</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="190"/>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="58"/>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Попередній перегляд недоступний.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="59"/>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сторінка завантажується занадто довго.</translation>
     </message>
 </context>
 </TS>
