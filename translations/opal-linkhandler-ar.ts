@@ -11,7 +11,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="220"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>أنت تستخدم بيانات الهاتف.</translation>
     </message>
 </context>
 <context>
