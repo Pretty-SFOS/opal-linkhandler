@@ -20,3 +20,9 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 - Francisco Serrador
 - Frank Paul Silye
 - Om Era
+- Åke Engelbrektson
+- Elmeri Länsiharju
+- Radio
+- ShowhyT
+- wusiyi
+- Максим Горпиніч
