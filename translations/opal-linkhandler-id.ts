@@ -4,12 +4,12 @@
 <context>
     <name>ExternalUrlPage</name>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="218"/>
         <source>Swipe left to preview.</source>
         <translation>Geser ke kiri untuk melihat pratinjau.</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="220"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
         <source>You are using a mobile data connection.</source>
         <translation>Saat ini Anda terhubung melalui data seluler.</translation>
     </message>
@@ -27,27 +27,27 @@
         <translation>Tautan luar</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="175"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="206"/>
         <source>Copy link</source>
         <translation>Salin link</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="180"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="211"/>
         <source>Copy text</source>
         <translation>Salin tulisan</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="190"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="189"/>
         <source>Share</source>
         <translation>Bagikan</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="209"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="180"/>
         <source>Open in browser</source>
         <translation>Buka di browser</translation>
     </message>
     <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="210"/>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="181"/>
         <source>Open externally</source>
         <translation>Buka di luar</translation>
     </message>
