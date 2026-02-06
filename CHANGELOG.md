@@ -5,6 +5,14 @@ SPDX-License-Identifier: GFDL-1.3-or-later
 
 # Changelog
 
+## 2.6.1 (2026-02-06)
+
+- Added translations: Baoulé, Burmese
+- Updated translations: Arabic, Finnish, Russian, Swedish, Ukrainian
+- Changed the order of buttons on the info page so that the most important
+  button is at the top, where it is easier to reach one handed and easier to find.
+- Fixed the gallery page
+
 ## 2.6.0 (2026-01-09)
 
 - Updated translations: Estonian, French, Indonesian, Norwegian Bokmål, Spanish
