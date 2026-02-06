@@ -1,6 +1,6 @@
 //@ This file is part of opal-linkhandler.
 //@ https://github.com/Pretty-SFOS/opal-linkhandler
-//@ SPDX-FileCopyrightText: 2021-2025 Mirian Margiani
+//@ SPDX-FileCopyrightText: 2021-2026 Mirian Margiani
 //@ SPDX-FileCopyrightText: 2025 roundedrectangle
 //@ SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -167,36 +167,7 @@ Page {
         Behavior on height { NumberAnimation { duration: 200 } }
 
         ButtonLayout {
-            id: firstRow
-            preferredWidth: root.isPortrait && !!title ? Theme.buttonWidthSmall : Theme.buttonWidthLarge
-
-            Button {
-                text: qsTranslate("Opal.LinkHandler", "Copy link")
-                onClicked: _copyAndClose(externalUrl.toString())
-            }
-
-            Button {
-                text: qsTranslate("Opal.LinkHandler", "Copy text")
-                visible: !!title
-                onClicked: _copyAndClose(title)
-            }
-        }
-
-        ButtonLayout {
             preferredWidth: Theme.buttonWidthLarge
-
-            Button {
-                text: qsTranslate("Opal.LinkHandler", "Share")
-                onClicked: {
-                    shareHandler.resources = [{
-                        'type': 'text/x-url',
-                        'linkTitle': title, // '' by default
-                        'status': externalUrl.toString()
-                    }]
-                    shareHandler.trigger()
-                    pageStack.pop()
-                }
-            }
 
             Button {
                 ButtonLayout.newLine: root.isPortrait
@@ -211,6 +182,34 @@ Page {
                     Qt.openUrlExternally(externalUrl)
                     pageStack.pop()
                 }
+            }
+
+            Button {
+                text: qsTranslate("Opal.LinkHandler", "Share")
+                onClicked: {
+                    shareHandler.resources = [{
+                        'type': 'text/x-url',
+                        'linkTitle': title, // '' by default
+                        'status': externalUrl.toString()
+                    }]
+                    shareHandler.trigger()
+                    pageStack.pop()
+                }
+            }
+        }
+
+        ButtonLayout {
+            preferredWidth: root.isPortrait && !!title ? Theme.buttonWidthSmall : Theme.buttonWidthLarge
+
+            Button {
+                text: qsTranslate("Opal.LinkHandler", "Copy link")
+                onClicked: _copyAndClose(externalUrl.toString())
+            }
+
+            Button {
+                text: qsTranslate("Opal.LinkHandler", "Copy text")
+                visible: !!title
+                onClicked: _copyAndClose(title)
             }
         }
 
