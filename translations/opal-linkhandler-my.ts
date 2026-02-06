@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ar">
+<TS version="2.1" language="my">
 <context>
     <name>ExternalUrlPage</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="220"/>
         <source>You are using a mobile data connection.</source>
-        <translation>أنت تستخدم بيانات الهاتف.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="138"/>
         <source>External link</source>
-        <translation>رابط خارجي</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="175"/>
@@ -44,17 +44,17 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="209"/>
         <source>Open in browser</source>
-        <translation>افتح في المتصفح</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="210"/>
         <source>Open externally</source>
-        <translation>الفتح عبر برنامج آخر</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="95"/>
         <source>Copied to clipboard: %1</source>
-        <translation>تم النسخ الى الحافظة: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="122"/>
