@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="vi">
+<TS version="2.1" language="ja">
 <context>
     <name>ExternalUrlPage</name>
     <message>
@@ -11,16 +11,11 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
         <source>You are using a mobile data connection.</source>
-        <translation>Bạn đang sử dụng dữ liệu di động.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Opal.LinkHandler</name>
-    <message>
-        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="189"/>
-        <source>Share</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="137"/>
         <source>Phone number</source>
@@ -39,6 +34,11 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="211"/>
         <source>Copy text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="189"/>
+        <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

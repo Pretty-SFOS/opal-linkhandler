@@ -6,12 +6,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="218"/>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>Náhľad zobrazíte potiahnutím doľava.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Používate mobilné dátové pripojenie.</translation>
     </message>
 </context>
 <context>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="137"/>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefónne číslo</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="138"/>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="206"/>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať odkaz</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="211"/>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať text</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="189"/>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="58"/>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Náhľad nie je k dispozícii.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="59"/>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stránka je príliš dlhá pre načítanie.</translation>
     </message>
 </context>
 </TS>

@@ -6,12 +6,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="218"/>
         <source>Swipe left to preview.</source>
-        <translation type="unfinished"></translation>
+        <translation>மாதிரிக்காட்சிக்கு இடதுபுறமாக ச்வைப் செய்.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="219"/>
         <source>You are using a mobile data connection.</source>
-        <translation type="unfinished"></translation>
+        <translation>நீங்கள் மொபைல் டேட்டா இணைப்பைப் பயன்படுத்துகிறீர்கள்.</translation>
     </message>
 </context>
 <context>
@@ -29,12 +29,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="206"/>
         <source>Copy link</source>
-        <translation type="unfinished"></translation>
+        <translation>இணைப்பை நகலெடுக்கவும்</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="211"/>
         <source>Copy text</source>
-        <translation type="unfinished"></translation>
+        <translation>உரையை நகலெடுக்கவும்</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/ExternalUrlPage.qml" line="189"/>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="58"/>
         <source>No preview available.</source>
-        <translation type="unfinished"></translation>
+        <translation>முன்னோட்டம் இல்லை.</translation>
     </message>
     <message>
         <location filename="../Opal/LinkHandler/private/PreviewPage.qml" line="59"/>
         <source>The page is taking too long to load.</source>
-        <translation type="unfinished"></translation>
+        <translation>பக்கம் ஏற்றப்பட அதிக நேரம் எடுக்கிறது.</translation>
     </message>
 </context>
 </TS>
